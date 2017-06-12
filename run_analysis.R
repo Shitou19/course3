@@ -32,5 +32,6 @@ JointDataSet[,'Activity']<-gsub("6", "LAYING", JointDataSet[,'Activity'])
 
 # create a second tidy data set with the average of each variable for each activity and each subject
 # and save it as a txt file
+library(dplyr)
 FinalDataSet<- JointDataSet %>% group_by(Subject, Activity) %>%  summarize_each(funs(mean))
 write.table(FinalDataSet, file = "FinalDataSet.txt", row.names = FALSE)
