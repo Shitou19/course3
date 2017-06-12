@@ -1,10 +1,10 @@
 # read the train and test files
-TrainTableX<-read.table("d:\\UCI HAR Dataset\\train\\X_train.txt")
-TrainTableY<-read.table("d:\\UCI HAR Dataset\\train\\y_train.txt")
-TrainSubject<-read.table("d:\\UCI HAR Dataset\\train\\subject_train.txt")
-TestTableX<-read.table("d:\\UCI HAR Dataset\\test\\X_test.txt")
-TestTableY<-read.table("d:\\UCI HAR Dataset\\test\\y_test.txt")
-TestSubject<-read.table("d:\\UCI HAR Dataset\\test\\subject_test.txt")
+TrainTableX<-read.table("train\\X_train.txt")
+TrainTableY<-read.table("train\\y_train.txt")
+TrainSubject<-read.table("train\\subject_train.txt")
+TestTableX<-read.table("test\\X_test.txt")
+TestTableY<-read.table("test\\y_test.txt")
+TestSubject<-read.table("test\\subject_test.txt")
 
 # combine the files to joint_table (Merges the training and the test sets to create one data set.)
 Train<-cbind(TrainTableX, TrainTableY, TrainSubject)
@@ -12,7 +12,7 @@ Test<-cbind(TestTableX, TestTableY, TestSubject)
 Table<-rbind(Train, Test)
 
 # add labels to the columns of the data set
-namescolu<-read.table("d:\\UCI HAR Dataset\\features.txt")
+namescolu<-read.table("features.txt")
 colnames(Table)<-namescolu[,2]
 colnames(Table)[562]<-"Activity"
 colnames(Table)[563]<-"Subject"
